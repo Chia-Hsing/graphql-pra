@@ -26,6 +26,7 @@ class SongDetail extends React.Component {
     }
 }
 
+// 因為 query 會在 component render 時自動執行，所以使用 option pass 需要的參數
 export default graphql(query, {
     options: (props) => {
         return { variables: { id: props.params.id } }

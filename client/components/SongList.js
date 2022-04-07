@@ -14,6 +14,7 @@ class SongList extends Component {
                 },
             })
             .then(() => {
+                // 要執行的 query 屬於這個 component 時。
                 this.props.data.refetch()
             })
     }

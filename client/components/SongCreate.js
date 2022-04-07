@@ -18,7 +18,9 @@ class SongCreate extends React.Component {
                 variables: {
                     title: this.state.title,
                 },
-                refetchQueries: [{ query }],
+                // 執行完 mutate 後會直接執行的 query，若這個 query 需要 variables，可放入 variables 參數。
+                // 要執行的 query 不屬於這個 component 時。
+                refetchQueries: [{ query /* variables */ }],
             })
             .then(() => hashHistory.push('/'))
     }
@@ -30,10 +32,7 @@ class SongCreate extends React.Component {
                 <h3>create a new song</h3>
                 <form onSubmit={this.onSubmit.bind(this)}>
                     <label>Song Title:</label>
-                    <input
-                        onChange={(event) => this.setState({ title: event.target.value })}
-                        value={this.state.title}
-                    />
+                    <input onChange={(event) => this.setState({ title: event.target.value })} value={this.state.title} />
                 </form>
             </div>
         )
